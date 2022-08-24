@@ -1,0 +1,77 @@
+.row{
+    padding: 20px;
+    background-color:rgb(156, 183, 248);
+    text-align: justify-content;
+}
+/*etiqueta nombre*/
+#nombre {
+    font-weight: bold;
+    margin-top: 30%;
+}  
+
+/*etiqueta titulo*/
+#titulo{
+    font-style: italic;
+    }
+
+/*estilo fotoperfil*/
+@media(min-width:576px) {
+    #fotoperfil{
+        position: absolute;
+        width: 18%;
+        border-radius: 100%;
+        box-shadow: 1px 1px 1px grey;
+        left: 3%;
+        top: 550px;
+    }
+}
+    @media(max-width:575px) {
+        #fotoperfil{
+            position: absolute;
+            width: 30%;
+            border-radius: 100%;
+            box-shadow: 1px 1px 1px grey;
+            top: 850px;
+            left: 35%;
+        }
+}
+@media(min-width:906px) {
+    #fotoperfil{
+        position: absolute;
+        width: 15%;
+        border-radius: 100%;
+        box-shadow: 1px 1px 1px grey;
+        top: 550px;
+        left: 3%;
+    }
+}
+@media(max-width:399px) {
+    #fotoperfil{
+        position: absolute;
+        width: 40%;
+        border-radius: 100%;
+        box-shadow: 1px 1px 1px grey;
+        top: 800px;
+        left: 33%;
+    }
+}
+@media(max-width:249px) {
+    #fotoperfil{
+        position: absolute;
+        width: 40%;
+        border-radius: 100%;
+        box-shadow: 1px 1px 1px grey;
+        top: 680px;
+        left: 35%;
+    }
+}
+@media(max-width:149px) {
+    #fotoperfil{
+        position: absolute;
+        width: 40%;
+        border-radius: 100%;
+        box-shadow: 1px 1px 1px grey;
+        top: 750px;
+        left: 35%;
+    }
+}
