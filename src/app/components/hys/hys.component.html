@@ -1,114 +1,134 @@
 <div class="row">
-    <h1>Hard & Soft skills</h1>
-    <div class="text-center col-sm-4 col-md-4 col-lg-4">
-        <circle-progress
-        [percent]="80"
-        [radius]="100"
-        [imageSrc]="'../assets/html.jpg'"
-        [showImage]="true"
-        [imageHeight]="80"
-        [imageWidth]="80"
-        [showUnits]="false"
-        [showSubtitle]="false"
-        [outerStrokeWidth]="5"
-        [innerStrokeWidth]="8"
-        [outerStrokeColor]="'lightblue'"
-        [innerStrokeColor]="'pink'"
-        [animation]="true"
-        [animationDuration]="400"
-    ></circle-progress>
+    <div class="col-lg-12 container-skills">
+      <h2>Hard & Soft skills</h2>
+    <button
+    type="button"
+    class="btn btn-circle btn-dark redondo"
+    data-toggle="modal"
+    data-target="#skillForm"
+    *ngIf="isLogged"
+    (click)="onNew()"
+  >
+    <img src="../../../assets/btnagregar.png" alt="boton para agregar" />
+  </button>
+    </div>
+    
+    <div class="skills-container" >
+      <div class="circle-container" *ngFor="let skills of skillsList; let i = index" cdkDrag>
+        <div class="container-circleimg">
+          <circle-progress
+          [percent]="skills.skillsL"
+          [maxPercent]="100"
+          [showUnits]="false"
+          [title]="skills.nombreS"
+          [showTitle]="true"
+          [showSubtitle]="false"
+          [titleColor]= "'white'"
+          [titleFontSize]="'16px'"
+          [titleFontWeight]="'600'"
+          [radius]="70"
+          [outerStrokeWidth]="5"
+          [innerStrokeWidth]="8"
+          [outerStrokeColor]="'lightblue'"
+          [innerStrokeColor]="'pink'"
+          [animation]="true"
+          [animationDuration]="500"
+        >        
+      </circle-progress>
+      <div class="container-buttonIcon">
+        <div *ngIf="isLogged" class="container-button">
+          <button
+            class="btn btn-light"
+            data-bs-toggle="modal"
+            data-bs-target="#skillForm"
+            (click)="onEdit(i)"
+          >
+            <img class="button-icon edit" src="../../../assets/edit.svg" />
+          </button>
+        </div>
+        <div *ngIf="isLogged" class="container-button">
+          <button class="btn btn-danger" (click)="onDelete(i)">
+            <img
+              class="button-icon trash"
+              src="../../../assets/trash.svg"
+            />
+          </button>
+        </div>
+      </div>
+          
+        </div>
+    </div>
     </div>
 
-    <div class="text-center col-sm-4 col-md-4 col-lg-4">
-        <circle-progress
-        [percent]="75"
-        [radius]="100"
-        [imageSrc]="'../assets/css.png'"
-        [showImage]="true"
-        [imageHeight]="80"
-        [imageWidth]="80"
-        [showUnits]="false"
-        [showSubtitle]="false"
-        [outerStrokeWidth]="5"
-        [innerStrokeWidth]="8"
-        [outerStrokeColor]="'lightblue'"
-        [innerStrokeColor]="'pink'"
-        [animation]="true"
-        [animationDuration]="400"
-    ></circle-progress>
-    </div>
-    <div class="text-center col-sm-4 col-md-4 col-lg-4">
-        <circle-progress
-        [percent]="90"
-        [radius]="100"
-        [imageSrc]="'../assets/javas.png'"
-        [showImage]="true"
-        [imageHeight]="90"
-        [imageWidth]="140"
-        [showUnits]="false"
-        [showSubtitle]="false"
-        [outerStrokeWidth]="5"
-        [innerStrokeWidth]="8"
-        [outerStrokeColor]="'lightblue'"
-        [innerStrokeColor]="'pink'"
-        [animation]="true"
-        [animationDuration]="400"
-    ></circle-progress>
-    </div>
-    <div class="text-center col-sm-4 col-md-4 col-lg-4">
-        <circle-progress
-        [percent]="95"
-        [radius]="100"
-        [imageSrc]="'../assets/sproblems.png'"
-        [showImage]="true"
-        [imageHeight]="80"
-        [imageWidth]="80"
-        [showUnits]="false"
-        [showSubtitle]="false"
-        [outerStrokeWidth]="5"
-        [innerStrokeWidth]="8"
-        [outerStrokeColor]="'lightblue'"
-        [innerStrokeColor]="'pink'"
-        [animation]="true"
-        [animationDuration]="400"
-    ></circle-progress>
-    </div>
-    <div class="text-center col-sm-4 col-md-4 col-lg-4">
-        <circle-progress
-        [percent]="90"
-        [radius]="100"
-        [imageSrc]="'../assets/team.jpg'"
-        [showImage]="true"
-        [imageHeight]="80"
-        [imageWidth]="80"
-        [showUnits]="false"
-        [showSubtitle]="false"
-        [outerStrokeWidth]="5"
-        [innerStrokeWidth]="8"
-        [outerStrokeColor]="'lightblue'"
-        [innerStrokeColor]="'pink'"
-        [animation]="true"
-        [animationDuration]="400"
-    ></circle-progress>
-    </div>
 
-    <div class="text-center col-sm-4 col-md-4 col-lg-4">
-        <circle-progress
-        [percent]="80"
-        [radius]="100"
-        [imageSrc]="'../assets/GitHub2.jpg'"
-        [showImage]="true"
-        [imageHeight]="80"
-        [imageWidth]="80"
-        [showUnits]="false"
-        [showSubtitle]="false"
-        [outerStrokeWidth]="5"
-        [innerStrokeWidth]="8"
-        [outerStrokeColor]="'lightblue'"
-        [innerStrokeColor]="'pink'"
-        [animation]="true"
-        [animationDuration]="400"
-    ></circle-progress>
+    <div
+    class="modal fade"
+    id="skillForm"
+    tabindex="-1"
+    aria-labelledby="skillFormLabel"
+    aria-hidden="true"
+  >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="skillFormLabel">
+          Hard Skills
+        </h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [] = "skillForm" (ngSubmit)="onSubmit()">
+          <input type="hidden" name="id" formControlName="id" />
+          
+          <div class="form-group">
+            <label for="nombreSkill">Skill</label>
+            <input
+              type="text"
+              name="nombreSkill"
+              id="nombreSkill"
+              class="form-control"
+              formControlName="nombreSkill"
+              required
+            />
+          </div>
+          
+          <div class="form-group">
+            <label for="skillsLevel">Skills Level</label>
+            
+            <div class="slidercontainer">
+              <input
+              type="range"
+              min="0"
+              max="100"
+              step="1"
+              value="80"
+              formControlName="skillsLevel"
+              name="skillsLevel"
+              id="skillsLevel"
+              class="form-control level"
+              required
+            />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button 
+            type="button" 
+            class="btn btn-ligth btn-cerrar" 
+            data-dismiss="modal">
+              Cerrar
+            </button>
+            <button
+              type="submit"
+              data-bs-toggle="modal"
+              id="btnGuardar"
+              class="btn btn-dark"
+            >
+              Guardar
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-
+  </div>
+  </div>
 </div>
